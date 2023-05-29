@@ -1,13 +1,9 @@
 const $photoURL = document.querySelector('#url');
 const $form = document.querySelector('form');
-// let fullURL = '';
-
-// console.log('Current data is: ', data);
 
 $photoURL.addEventListener('input', event => {
   const url = document.querySelector('#url').value;
   document.querySelector('#img-preview').setAttribute('src', url);
-  // I get event.data = null when I paste?
 });
 
 $form.addEventListener('submit', event => {
