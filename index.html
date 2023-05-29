@@ -20,12 +20,14 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="row">
-        <div class="column-full">
+    <div class="row">
+      <div class="column-full">
+        <div class="container">
           <h3>Code Journal</h3>
         </div>
       </div>
+    </div>
+    <div class="container">
     </div>
   </header>
   <main class="container">
@@ -39,20 +41,20 @@
         <div class="row">
           <div class="column-half">
             <div class="img-wrapper">
-              <img src="images/placeholder-image-square.jpg">
+              <img src="images/placeholder-image-square.jpg" alt="notes-img">
             </div>
           </div>
           <div class="column-half">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" />
             <label for="url">Photo URL</label>
-            <input type="text" id="url" name="photo-url" />
+            <input type="text" id="url" name="url" />
           </div>
         </div>
         <div class="row">
           <div class="column-full">
             <label for="notes">Notes</label>
-            <textarea id="notes"></textarea>
+            <textarea rows="6" id="notes" name="notes"></textarea>
           </div>
         </div>
         <div class="row">
