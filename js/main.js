@@ -1,25 +1,14 @@
 const $photoURL = document.querySelector('#url');
 const $form = document.querySelector('form');
-let dataHolder = '';
+// let fullURL = '';
 
 // console.log('Current data is: ', data);
 
 $photoURL.addEventListener('input', event => {
-  const url = event.data;
-  if (event.inputType === 'deleteContentBackward') {
-    dataHolder = dataHolder.slice(0, -1);
-  } else {
-    dataHolder += url;
-  }
-  // console.log('data-holder: ', dataHolder);
-  document.querySelector('#img-preview').setAttribute('src', dataHolder);
+  const url = document.querySelector('#url').value;
+  document.querySelector('#img-preview').setAttribute('src', url);
   // I get event.data = null when I paste?
 });
-
-// $photoURL.addEventListener('paste', event => {
-//   // console.log('window data', window);
-//   // console.log('paste event: ', event);
-// });
 
 $form.addEventListener('submit', event => {
   event.preventDefault();
