@@ -32,3 +32,25 @@
     width: 50%;
   }
 }
+
+/* New Stuff */
+
+header .row {
+  background-color: #562b81;
+  color: white;
+}
+
+h3 {
+  font-family:
+    "Open Sans",
+    sans-serif;
+  font-weight: 100;
+}
+
+label {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
