@@ -54,6 +54,7 @@ function renderEntry(entry) {
 
   const $img = document.createElement('img');
   $img.setAttribute('src', url);
+  $img.setAttribute('alt', 'entry image');
   $imgWrap.appendChild($img);
 
   // second column
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', event => {
   viewSwap(data.view);
 });
 
-function HideNoEntries() {
+function hideNoEntries() {
   $entriesMsg.classList.add('hidden');
 }
 
@@ -91,7 +92,7 @@ function viewSwap(view) {
     $entriesDiv.classList.remove('hidden');
     $entryFormDiv.classList.add('hidden');
     if (data.entries.length > 0) {
-      HideNoEntries();
+      hideNoEntries();
     }
   } else if (view === 'entry-form') {
     $entryFormDiv.classList.remove('hidden');
