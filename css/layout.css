@@ -18,10 +18,26 @@
   width: 100%;
 }
 
+.column-quarter {
+  width: 50%;
+}
+
 .img-wrapper {
   width: 100%;
   height: 25rem;
   margin-bottom: 4%;
+}
+
+.entries-anchor {
+  display: flex;
+  align-items: center;
+  margin-left: 0.75rem;
+}
+
+.entries-top {
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {

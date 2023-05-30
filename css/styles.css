@@ -83,3 +83,47 @@ button {
   margin-bottom: 1rem;
   border-radius: 0.25rem;
 }
+
+.column-quarter > button {
+  width: 20%;
+  height: 40%;
+  margin-bottom: 0;
+}
+
+.column-quarter > button:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 6%;
+}
+
+.entry-title {
+  margin-top: 0%;
+}
+
+.no-entries {
+  text-align: center;
+}
+
+.nav-bar {
+  display: flex;
+}
+
+.entries-anchor {
+  font-size: 16px;
+}
+
+.entries-anchor:hover {
+  cursor: pointer;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
