@@ -9,6 +9,8 @@ const $entriesDiv = document.querySelector('[data-view="entries"]');
 const $entriesAnchor = document.querySelector('.entries-anchor');
 const $entryFormAnchor = document.querySelector('.entry-form-anchor');
 
+const $entryTitle = document.querySelector('#entry-title');
+
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
   $image.setAttribute('src', url);
@@ -141,5 +143,10 @@ $unorderedList.addEventListener('click', event => {
       }
     }
     viewSwap('entry-form');
+    $form.elements[0].value = data.editing.title;
+    $form.elements[1].value = data.editing.url;
+    $form.elements[2].value = data.editing.notes;
+    $image.setAttribute('src', data.editing.url);
+    $entryTitle.textContent = 'Edit Entry';
   }
 });
