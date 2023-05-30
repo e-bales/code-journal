@@ -11,6 +11,7 @@ const $entryFormAnchor = document.querySelector('.entry-form-anchor');
 
 const $entryTitle = document.querySelector('#entry-title');
 const $deleteEntry = document.querySelector('.delete-entry');
+const $deleteText = document.querySelector('.delete-button');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -176,4 +177,8 @@ $unorderedList.addEventListener('click', event => {
     $entryTitle.textContent = 'Edit Entry';
     viewSwap('entry-form');
   }
+});
+
+$deleteText.addEventListener('click', event => {
+  // console.log('You would like to delete :)');
 });
