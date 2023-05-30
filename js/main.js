@@ -38,7 +38,9 @@ function renderEntry(entry) {
   const title = entry.title;
   const notes = entry.notes;
   const url = entry.url;
+  const id = entry.entryId;
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', id);
   const $rowDiv = document.createElement('div');
   $rowDiv.setAttribute('class', 'row');
   $li.appendChild($rowDiv);
