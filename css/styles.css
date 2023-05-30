@@ -127,3 +127,18 @@ a {
   color: white;
   text-decoration: none;
 }
+
+.column-icon {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.fa-pencil {
+  margin-bottom: 50%;
+  color: #562b81;
+}
+
+.fa-pencil:hover {
+  cursor: pointer;
+}
