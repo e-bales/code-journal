@@ -128,3 +128,18 @@ $entriesAnchor.addEventListener('click', () => {
 $entryFormAnchor.addEventListener('click', () => {
   viewSwap('entry-form');
 });
+
+$unorderedList.addEventListener('click', event => {
+  if (event.target.tagName === 'I') {
+    const $currLI = event.target.closest('li');
+    const listId = Number($currLI.dataset.entryId);
+    for (let i = 0; i < data.entries.length; i++) {
+      const retrievedEntry = data.entries[i];
+      if (retrievedEntry.entryId === listId) {
+        data.editing = retrievedEntry;
+        break;
+      }
+    }
+    viewSwap('entry-form');
+  }
+});
