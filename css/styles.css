@@ -83,3 +83,21 @@ button {
   margin-bottom: 1rem;
   border-radius: 0.25rem;
 }
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 6%;
+}
+
+.entry-title {
+  margin-top: 0%;
+}
+
+/* ul .img-wrapper {
+  height: 18rem;
+
+} */
