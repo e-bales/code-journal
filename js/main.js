@@ -21,16 +21,30 @@ $form.addEventListener('submit', event => {
   const newTitle = $form.elements[0].value;
   const newUrl = $form.elements[1].value;
   const newNotes = $form.elements[2].value;
-  const newId = data.nextEntryId;
   const obj = {
     title: newTitle,
     url: newUrl,
-    notes: newNotes,
-    entryId: newId
+    notes: newNotes
   };
-  data.nextEntryId++;
-  data.entries.unshift(obj);
-  $unorderedList.prepend(renderEntry(obj));
+  if (data.editing !== null) { // if we are editing an entry
+    obj.entryId = data.editing.entryId;
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+        data.entries[i] = obj;
+        break;
+      }
+    }
+    const $newEntryLi = renderEntry(obj);
+    const $oldLi = document.querySelector('[data-entry-id=' + CSS.escape(obj.entryId) + ']');
+    $oldLi.replaceWith($newEntryLi);
+    $entryTitle.textContent = 'New Entry';
+    data.editing = null;
+  } else { // else we are entering a new entry
+    obj.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(obj);
+    $unorderedList.prepend(renderEntry(obj));
+  }
   viewSwap('entries');
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
