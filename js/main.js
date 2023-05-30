@@ -1,16 +1,17 @@
 const $photoURL = document.querySelector('#url');
 const $form = document.querySelector('form');
+const $image = document.querySelector('#img-preview');
 
 $photoURL.addEventListener('input', event => {
-  const url = document.querySelector('#url').value;
-  document.querySelector('#img-preview').setAttribute('src', url);
+  const url = $photoURL.value;
+  $image.setAttribute('src', url);
 });
 
 $form.addEventListener('submit', event => {
   event.preventDefault();
-  const newTitle = document.querySelector('#title').value;
-  const newUrl = document.querySelector('#url').value;
-  const newNotes = document.querySelector('#notes').value;
+  const newTitle = $form.elements[0].value;
+  const newUrl = $form.elements[1].value;
+  const newNotes = $form.elements[2].value;
   const newId = data.nextEntryId;
   const obj = {
     title: newTitle,
@@ -19,7 +20,7 @@ $form.addEventListener('submit', event => {
     entryId: newId
   };
   data.nextEntryId++;
-  data.entries.push(obj);
-  document.querySelector('#img-preview').setAttribute('src', 'images/placeholder-image-square.jpg');
+  data.entries.unshift(obj);
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 });
