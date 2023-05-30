@@ -7,6 +7,7 @@ const $unorderedList = document.querySelector('ul');
 const $entryFormDiv = document.querySelector('[data-view="entry-form"]');
 const $entriesDiv = document.querySelector('[data-view="entries"]');
 const $entriesAnchor = document.querySelector('.entries-anchor');
+const $entryFormAnchor = document.querySelector('.entry-form-anchor');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -92,4 +93,9 @@ function viewSwap(view) {
   }
 }
 
-$entriesAnchor.addEventListener('click', viewSwap('entries'));
+$entriesAnchor.addEventListener('click', () => {
+  viewSwap('entries');
+});
+$entryFormAnchor.addEventListener('click', () => {
+  viewSwap('entry-form');
+});

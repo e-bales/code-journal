@@ -84,6 +84,16 @@ button {
   border-radius: 0.25rem;
 }
 
+.column-quarter > button {
+  width: 20%;
+  height: 40%;
+  margin-bottom: 0;
+}
+
+.column-quarter > button:hover {
+  cursor: pointer;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0;
