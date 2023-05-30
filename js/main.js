@@ -31,24 +31,30 @@ function renderEntry(entry) {
   const notes = entry.notes;
   const url = entry.url;
   const $li = document.createElement('li');
-  const $rowDiv = document.createElement('div').setAttribute('class', 'row');
+  const $rowDiv = document.createElement('div');
+  $rowDiv.setAttribute('class', 'row');
   $li.appendChild($rowDiv);
 
   // first column
-  const $imgCol = document.createElement('div').setAttribute('class', 'column-half');
+  const $imgCol = document.createElement('div');
+  $imgCol.setAttribute('class', 'column-half');
   $rowDiv.appendChild($imgCol);
 
-  const $imgWrap = document.createElement('div').setAttribute('class', 'img-wrapper');
+  const $imgWrap = document.createElement('div');
+  $imgWrap.setAttribute('class', 'img-wrapper');
   $imgCol.appendChild($imgWrap);
 
-  const $img = document.createElement('img').setAttribute('src', url);
-  $imgCol.appendChild($img);
+  const $img = document.createElement('img');
+  $img.setAttribute('src', url);
+  $imgWrap.appendChild($img);
 
   // second column
-  const $infoCol = document.createElement('div').setAttribute('class', 'column-half');
+  const $infoCol = document.createElement('div');
+  $infoCol.setAttribute('class', 'column-half');
   $rowDiv.appendChild($infoCol);
 
-  const $title = document.createElement('h2').setAttribute('class', 'entry-title');
+  const $title = document.createElement('h2');
+  $title.setAttribute('class', 'entry-title');
   $title.textContent = title;
   $infoCol.appendChild($title);
 
