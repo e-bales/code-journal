@@ -18,8 +18,16 @@
   width: 100%;
 }
 
+.column-three-quarter {
+  width: 75%;
+}
+
 .column-quarter {
   width: 50%;
+}
+
+.column-icon {
+  width: 25%;
 }
 
 .img-wrapper {

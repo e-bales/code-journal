@@ -62,10 +62,30 @@ function renderEntry(entry) {
   $infoCol.setAttribute('class', 'column-half');
   $rowDiv.appendChild($infoCol);
 
+  const $infoTitleRow = document.createElement('div');
+  $infoTitleRow.setAttribute('class', 'row');
+  $infoCol.appendChild($infoTitleRow);
+
+  const $threeQuarters = document.createElement('div');
+  $threeQuarters.setAttribute('class', 'column-three-quarter');
+  $infoTitleRow.appendChild($threeQuarters);
+
   const $title = document.createElement('h2');
   $title.setAttribute('class', 'entry-title');
   $title.textContent = title;
-  $infoCol.appendChild($title);
+  $threeQuarters.appendChild($title);
+
+  const $colIcon = document.createElement('div');
+  $colIcon.setAttribute('class', 'column-icon');
+  $infoTitleRow.appendChild($colIcon);
+
+  const $iconWrap = document.createElement('div');
+  $iconWrap.setAttribute('class', 'icon-wrapper');
+  $colIcon.appendChild($iconWrap);
+
+  const $icon = document.createElement('i');
+  $icon.classList.add('fa-solid', 'fa-pencil', 'fa-2x');
+  $iconWrap.appendChild($icon);
 
   const $notes = document.createElement('p');
   $notes.textContent = notes;
