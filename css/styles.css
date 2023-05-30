@@ -86,7 +86,7 @@ button {
 
 .column-quarter > button {
   width: 20%;
-  height: 40%;
+  height: 2rem;
   margin-bottom: 0;
 }
 
@@ -140,5 +140,15 @@ a {
 }
 
 .fa-pencil:hover {
+  cursor: pointer;
+}
+
+.delete p {
+  /* margin-bottom: 1rem; */
+  color: red;
+  text-decoration: underline;
+}
+
+.delete p:hover {
   cursor: pointer;
 }

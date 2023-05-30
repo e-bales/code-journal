@@ -140,6 +140,9 @@ function viewSwap(view) {
 
 $entriesAnchor.addEventListener('click', () => {
   viewSwap('entries');
+  $form.reset();
+  $entryTitle.textContent = 'New Entry';
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
 $entryFormAnchor.addEventListener('click', () => {
   viewSwap('entry-form');
