@@ -2,6 +2,11 @@ const $photoURL = document.querySelector('#url');
 const $form = document.querySelector('form');
 const $image = document.querySelector('#img-preview');
 const $unorderedList = document.querySelector('ul');
+// const $entriesMsg = document.querySelector('.no-entries');
+
+const $entryFormDiv = document.querySelector('[data-view="entry-form"]');
+const $entriesDiv = document.querySelector('[data-view="entries"]');
+const $entriesAnchor = document.querySelector('.entries-anchor');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -71,3 +76,20 @@ document.addEventListener('DOMContentLoaded', event => {
     $unorderedList.appendChild(renderEntry(currEntry));
   }
 });
+
+// function toggleNoEntries() {
+//   $entriesMsg.classList.toggle('hidden');
+// }
+
+function viewSwap(view) {
+  data.view = view;
+  if (view === 'entries') {
+    $entriesDiv.classList.remove('hidden');
+    $entryFormDiv.classList.add('hidden');
+  } else if (view === 'entry-form') {
+    $entryFormDiv.classList.remove('hidden');
+    $entriesDiv.classList.add('hidden');
+  }
+}
+
+$entriesAnchor.addEventListener('click', viewSwap('entries'));
