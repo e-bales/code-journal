@@ -156,11 +156,11 @@ $unorderedList.addEventListener('click', event => {
         break;
       }
     }
-    viewSwap('entry-form');
     $form.elements[0].value = data.editing.title;
     $form.elements[1].value = data.editing.url;
     $form.elements[2].value = data.editing.notes;
     $image.setAttribute('src', data.editing.url);
     $entryTitle.textContent = 'Edit Entry';
+    viewSwap('entry-form');
   }
 });
