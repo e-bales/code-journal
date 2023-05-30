@@ -152,3 +152,7 @@ a {
 .delete p:hover {
   cursor: pointer;
 }
+
+.invisible {
+  visibility: hidden;
+}

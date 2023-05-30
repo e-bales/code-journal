@@ -10,6 +10,7 @@ const $entriesAnchor = document.querySelector('.entries-anchor');
 const $entryFormAnchor = document.querySelector('.entry-form-anchor');
 
 const $entryTitle = document.querySelector('#entry-title');
+const $deleteEntry = document.querySelector('.delete-entry');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -39,6 +40,7 @@ $form.addEventListener('submit', event => {
     $oldLi.replaceWith($newEntryLi);
     $entryTitle.textContent = 'New Entry';
     data.editing = null;
+    $deleteEntry.classList.add('invisible');
   } else { // else we are entering a new entry
     obj.entryId = data.nextEntryId;
     data.nextEntryId++;
@@ -132,7 +134,15 @@ function viewSwap(view) {
     if (data.entries.length > 0) {
       hideNoEntries();
     }
+    if (data.editing !== null) { // if the user doesn't save their edit, don't want data.editing to still be filled
+      data.editing = null;
+    }
   } else if (view === 'entry-form') {
+    if (data.editing !== null) { // need to show delete entry if we are editing an entry
+      $deleteEntry.classList.remove('invisible');
+    } else {
+      $deleteEntry.classList.add('invisible');
+    }
     $entryFormDiv.classList.remove('hidden');
     $entriesDiv.classList.add('hidden');
   }
