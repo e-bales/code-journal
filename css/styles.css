@@ -86,8 +86,12 @@ button {
 
 .column-quarter > button {
   width: 20%;
-  height: 40%;
+  height: 2rem;
   margin-bottom: 0;
+}
+
+.modal button {
+  width: 6rem;
 }
 
 .column-quarter > button:hover {
@@ -141,4 +145,68 @@ a {
 
 .fa-pencil:hover {
   cursor: pointer;
+}
+
+.delete p {
+  color: red;
+  text-decoration: underline;
+}
+
+.delete p:hover {
+  cursor: pointer;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.confirmation {
+  position: relative;
+}
+
+.outer-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.5);
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 3px rgb(61, 61, 61);
+  padding: 2rem;
+}
+
+.delete-title {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cancel {
+  display: flex;
+  justify-content: left;
+  padding-left: 1.2rem;
+}
+
+.confirm {
+  display: flex;
+  justify-content: right;
+  padding-right: 1.2rem;
+}
+
+.cancel-button {
+  background-color: #b6b6b6;
+  border: none;
+  color: black;
+  font-weight: bold;
+}
+
+.confirm-button {
+  background-color: #dc2626;
+  border: none;
+  font-weight: bold;
 }

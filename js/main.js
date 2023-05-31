@@ -10,6 +10,11 @@ const $entriesAnchor = document.querySelector('.entries-anchor');
 const $entryFormAnchor = document.querySelector('.entry-form-anchor');
 
 const $entryTitle = document.querySelector('#entry-title');
+const $deleteEntry = document.querySelector('.delete-entry');
+const $deleteText = document.querySelector('.delete-button');
+const $deleteModal = document.querySelector('.confirmation');
+const $cancelDelete = document.querySelector('.cancel-button');
+const $confirmDelete = document.querySelector('.confirm-button');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -39,6 +44,7 @@ $form.addEventListener('submit', event => {
     $oldLi.replaceWith($newEntryLi);
     $entryTitle.textContent = 'New Entry';
     data.editing = null;
+    $deleteEntry.classList.add('invisible');
   } else { // else we are entering a new entry
     obj.entryId = data.nextEntryId;
     data.nextEntryId++;
@@ -124,6 +130,10 @@ function hideNoEntries() {
   $entriesMsg.classList.add('hidden');
 }
 
+function showNoEntries() {
+  $entriesMsg.classList.remove('hidden');
+}
+
 function viewSwap(view) {
   data.view = view;
   if (view === 'entries') {
@@ -132,13 +142,24 @@ function viewSwap(view) {
     if (data.entries.length > 0) {
       hideNoEntries();
     }
+    if (data.editing !== null) { // if the user doesn't save their edit, don't want data.editing to still be filled
+      data.editing = null;
+    }
   } else if (view === 'entry-form') {
+    if (data.editing !== null) { // need to show delete entry if we are editing an entry
+      $deleteEntry.classList.remove('invisible');
+    } else {
+      $deleteEntry.classList.add('invisible');
+    }
     $entryFormDiv.classList.remove('hidden');
     $entriesDiv.classList.add('hidden');
   }
 }
 
 $entriesAnchor.addEventListener('click', () => {
+  $form.reset();
+  $entryTitle.textContent = 'New Entry';
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   viewSwap('entries');
 });
 $entryFormAnchor.addEventListener('click', () => {
@@ -163,4 +184,27 @@ $unorderedList.addEventListener('click', event => {
     $entryTitle.textContent = 'Edit Entry';
     viewSwap('entry-form');
   }
+});
+
+$deleteText.addEventListener('click', event => {
+  $deleteModal.classList.remove('hidden');
+});
+
+$cancelDelete.addEventListener('click', event => {
+  $deleteModal.classList.add('hidden');
+});
+
+$confirmDelete.addEventListener('click', event => {
+  const entryIndex = data.entries.indexOf(data.editing);
+  const $removeElement = document.querySelector('[data-entry-id=' + CSS.escape(data.editing.entryId) + ']');
+  $removeElement.remove($removeElement);
+  data.entries.splice(entryIndex, 1);
+  $deleteModal.classList.add('hidden');
+  if (data.entries.length === 0) {
+    showNoEntries();
+  }
+  $form.reset();
+  $entryTitle.textContent = 'New Entry';
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+  viewSwap('entries');
 });
