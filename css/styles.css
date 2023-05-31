@@ -119,6 +119,14 @@ li {
   display: flex;
 }
 
+.nav-bar form {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding-right: 0.75rem;
+  padding-top: 0.75rem;
+}
+
 .entries-anchor {
   font-size: 16px;
 }
@@ -209,4 +217,9 @@ a {
   background-color: #dc2626;
   border: none;
   font-weight: bold;
+}
+
+#search-bar {
+  border: solid;
+  border-color: #431266;
 }

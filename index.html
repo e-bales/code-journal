@@ -23,8 +23,17 @@
     <div class="row">
       <div class="column-full">
         <div class="container nav-bar">
-          <h3>Code Journal</h3>
-          <a href="#" class="entries-anchor">Entries</a>
+          <div class="column-quarter head">
+            <h3>Code Journal</h3>
+            <a href="#" class="entries-anchor">Entries</a>
+          </div>
+          <div class="column-quarter">
+            <form autocomplete="off">
+              <div class="search-container">
+                <input type="text" id="search-bar" name="search-bar" placeholder="Search Bar">
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -38,7 +47,7 @@
           <h2 id="entry-title">New Entry</h2>
         </div>
       </div>
-      <form autocomplete="off">
+      <form class="main-form" autocomplete="off">
         <div class="row">
           <div class="column-half">
             <div class="img-wrapper">
@@ -80,6 +89,11 @@
       <div class="row">
         <div class="column-full no-entries">
           <h3>No entries have been recorded.</h3>
+        </div>
+      </div>
+      <div class="row no-results hidden">
+        <div class="column-full no-entries">
+          <h3>No results found.</h3>
         </div>
       </div>
       <div class="entries-list">
