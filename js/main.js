@@ -15,7 +15,9 @@ const $deleteText = document.querySelector('.delete-button');
 const $deleteModal = document.querySelector('.confirmation');
 const $cancelDelete = document.querySelector('.cancel-button');
 const $confirmDelete = document.querySelector('.confirm-button');
+
 const $searchBar = document.querySelector('#search-bar');
+const $resultsMsg = document.querySelector('.no-results');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -135,6 +137,14 @@ function showNoEntries() {
   $entriesMsg.classList.remove('hidden');
 }
 
+function hideNoResults() {
+  $resultsMsg.classList.add('hidden');
+}
+
+function showNoResults() {
+  $resultsMsg.classList.remove('hidden');
+}
+
 function viewSwap(view) {
   data.view = view;
   if (view === 'entries') {
@@ -146,6 +156,7 @@ function viewSwap(view) {
     if (data.editing !== null) { // if the user doesn't save their edit, don't want data.editing to still be filled
       data.editing = null;
     }
+    revealAllLi();
   } else if (view === 'entry-form') {
     if (data.editing !== null) { // need to show delete entry if we are editing an entry
       $deleteEntry.classList.remove('invisible');
@@ -217,20 +228,32 @@ $confirmDelete.addEventListener('click', event => {
 $searchBar.addEventListener('keypress', event => {
   if (event.key === 'Enter') {
     event.preventDefault();
+    hideNoResults();
     const userSearch = $searchBar.value;
     const regex = new RegExp(userSearch, 'i');
-    const matchesArray = [];
-    const failsArray = [];
+    let counter = 0;
+    // const failsArray = [];
     for (let i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].title.match(regex)) {
-        matchesArray.push(data.entries[i]);
+      const loopEntry = data.entries[i];
+      const $entryLi = document.querySelector('[data-entry-id=' + CSS.escape(loopEntry.entryId) + ']');
+      if (loopEntry.title.match(regex)) {
+        counter++;
+        $entryLi.classList.remove('hidden');
       } else {
-        failsArray.push(data.entries[i]);
+        // failsArray.push(loopEntry);
+        $entryLi.classList.add('hidden');
       }
     }
-    // console.log('Good array: ', matchesArray);
-    // console.log('Bad Array: ', failsArray);
-    // console.log('User pressed enter!');
-    // console.log('User is searching for: ', $searchBar.value);
+    if (counter === 0) {
+      showNoResults();
+    }
   }
 });
+
+function revealAllLi() {
+  for (let i = 0; i < data.entries.length; i++) {
+    const $holderLi = document.querySelector('[data-entry-id=' + CSS.escape(data.entries[i].entryId) + ']');
+    $holderLi.classList.remove('hidden');
+  }
+  $searchBar.value = null;
+}
