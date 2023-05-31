@@ -203,5 +203,8 @@ $confirmDelete.addEventListener('click', event => {
   if (data.entries.length === 0) {
     showNoEntries();
   }
+  $form.reset();
+  $entryTitle.textContent = 'New Entry';
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   viewSwap('entries');
 });
