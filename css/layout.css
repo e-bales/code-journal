@@ -52,6 +52,12 @@
   width: 30rem;
 }
 
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 700px;
@@ -81,9 +87,5 @@
 
   .delete {
     padding-left: 0.75rem;
-  }
-
-  .modal-container {
-    width: 30rem;
   }
 }
