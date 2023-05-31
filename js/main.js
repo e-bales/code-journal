@@ -12,6 +12,9 @@ const $entryFormAnchor = document.querySelector('.entry-form-anchor');
 const $entryTitle = document.querySelector('#entry-title');
 const $deleteEntry = document.querySelector('.delete-entry');
 const $deleteText = document.querySelector('.delete-button');
+const $deleteModal = document.querySelector('.confirmation');
+const $cancelDelete = document.querySelector('.cancel-button');
+// const $confirmDelete = document.querySelector('.confirm-button');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -180,5 +183,9 @@ $unorderedList.addEventListener('click', event => {
 });
 
 $deleteText.addEventListener('click', event => {
-  // console.log('You would like to delete :)');
+  $deleteModal.classList.remove('hidden');
+});
+
+$cancelDelete.addEventListener('click', event => {
+  $deleteModal.classList.add('hidden');
 });
