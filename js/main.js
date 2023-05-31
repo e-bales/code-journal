@@ -1,5 +1,5 @@
 const $photoURL = document.querySelector('#url');
-const $form = document.querySelector('form');
+const $form = document.querySelector('.main-form');
 const $image = document.querySelector('#img-preview');
 const $unorderedList = document.querySelector('ul');
 const $entriesMsg = document.querySelector('.no-entries');
@@ -210,6 +210,27 @@ $confirmDelete.addEventListener('click', event => {
   viewSwap('entries');
 });
 
-$searchBar.addEventListener('input', event => {
+// $searchBar.addEventListener('input', event => {
+//   console.log($searchBar.value);
+// });
 
+$searchBar.addEventListener('keypress', event => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const userSearch = $searchBar.value;
+    const regex = new RegExp(userSearch, 'i');
+    const matchesArray = [];
+    const failsArray = [];
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].title.match(regex)) {
+        matchesArray.push(data.entries[i]);
+      } else {
+        failsArray.push(data.entries[i]);
+      }
+    }
+    // console.log('Good array: ', matchesArray);
+    // console.log('Bad Array: ', failsArray);
+    // console.log('User pressed enter!');
+    // console.log('User is searching for: ', $searchBar.value);
+  }
 });

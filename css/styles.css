@@ -219,7 +219,7 @@ a {
   font-weight: bold;
 }
 
-/* .search-container {
-  padding-left: 11.5rem;
-  padding-top: 0.2rem;
-} */
+#search-bar {
+  border: solid;
+  border-color: #431266;
+}
