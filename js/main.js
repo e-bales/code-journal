@@ -15,6 +15,7 @@ const $deleteText = document.querySelector('.delete-button');
 const $deleteModal = document.querySelector('.confirmation');
 const $cancelDelete = document.querySelector('.cancel-button');
 const $confirmDelete = document.querySelector('.confirm-button');
+const $searchBar = document.querySelector('#search-bar');
 
 $photoURL.addEventListener('input', event => {
   const url = $photoURL.value;
@@ -207,4 +208,8 @@ $confirmDelete.addEventListener('click', event => {
   $entryTitle.textContent = 'New Entry';
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   viewSwap('entries');
+});
+
+$searchBar.addEventListener('input', event => {
+
 });
