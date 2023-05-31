@@ -49,7 +49,7 @@
 }
 
 .modal-container {
-  width: 60%;
+  width: 30rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -84,6 +84,6 @@
   }
 
   .modal-container {
-    width: 40%;
+    width: 30rem;
   }
 }
